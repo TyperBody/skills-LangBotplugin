@@ -37,3 +37,8 @@ Whether integrating third-party APIs, processing specific data, or executing com
 ## 🚀 Main Project
 
 - [LangBot](https://github.com/langbot-app/LangBot) — *Apache-2.0*
+
+## 🤝 Entrustment of personality rights
+
+- LangBot Lead / RockChinQ
+- LangBot Plugin Master / sheetung
