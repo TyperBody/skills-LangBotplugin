@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Plugin
+metadata:
+  author: langbot-team
+  name: RAGFlowRetriever
+  repository: ''
+  version: 0.1.0
+  description:
+    en_US: Retrieve knowledge from RAGFlow knowledge bases
+    zh_Hans: 从 RAGFlow 知识库中检索知识
+    ja_JP: RAGFlow 知識ベースから知識を検索
+  label:
+    en_US: RAGFlowKnowledgeBaseRetriever
+    zh_Hans: RAGFlow 知识库检索器
+    ja_JP: RAGFlow 知識ベース検索器
+  icon: assets/icon.svg
+spec:
+  config: []
+  components:
+    KnowledgeRetriever:
+      fromDirs:
+      - path: components/knowledge_retriever/
+execution:
+  python:
+    path: main.py
+    attr: RAGFlowRetriever

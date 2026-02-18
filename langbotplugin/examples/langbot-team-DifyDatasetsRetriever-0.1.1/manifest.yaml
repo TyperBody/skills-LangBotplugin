@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Plugin
+metadata:
+  author: langbot-team
+  name: DifyDatasetsRetriever
+  repository: ''
+  version: 0.1.1
+  description:
+    en_US: Retriever knowledge from Dify knowledge bases
+    zh_Hans: 从 Dify 知识库中检索知识
+    ja_JP: Dify 知識ベースから知識を検索
+  label:
+    en_US: DifyKnowledgeBaseRetriever
+    zh_Hans: Dify 知识库检索器
+    ja_JP: Dify 知識ベース検索器
+  icon: assets/icon.svg
+spec:
+  config: []
+  components:
+    KnowledgeRetriever:
+      fromDirs:
+      - path: components/knowledge_retriever/
+execution:
+  python:
+    path: main.py
+    attr: DifyDatasetsRetriever

@@ -1,0 +1,96 @@
+apiVersion: v1
+kind: KnowledgeRetriever
+metadata:
+  name: ragflow_datasets
+  label:
+    en_US: RAGFlow Knowledge Base
+    zh_Hans: RAGFlow 知识库
+    ja_JP: RAGFlow 知識ベース
+  description:
+    en_US: 'Retrieve knowledge from RAGFlow knowledge bases'
+    zh_Hans: '从 RAGFlow 知识库中检索知识'
+    ja_JP: 'RAGFlow 知識ベースから知識を検索'
+  icon: assets/icon.svg
+spec:
+  config:
+    - name: api_base_url
+      type: string
+      label:
+        en_US: API Base URL
+        zh_Hans: API 基础地址
+      description:
+        en_US: 'Base URL for RAGFlow API (e.g., http://localhost:9380 for local, or your server URL)'
+        zh_Hans: 'RAGFlow API 基础地址（本地版本使用 http://localhost:9380，或使用您的服务器地址）'
+        ja_JP: 'RAGFlow API ベース URL（ローカル版は http://localhost:9380、またはサーバーの URL）'
+      default: 'http://localhost:9380'
+      required: true
+    - name: api_key
+      type: string
+      label:
+        en_US: RAGFlow API Key
+        zh_Hans: RAGFlow API Key
+      description:
+        en_US: 'API key from your RAGFlow instance'
+        zh_Hans: '从您的 RAGFlow 实例获取的 API Key'
+        ja_JP: 'RAGFlow インスタンスから取得した API Key'
+      default: ''
+      required: true
+    - name: dataset_ids
+      type: string
+      label:
+        en_US: Dataset IDs
+        zh_Hans: 数据集 IDs
+      description:
+        en_US: 'Comma-separated dataset IDs to search (e.g., "id1,id2,id3")'
+        zh_Hans: '要搜索的数据集 ID，用逗号分隔（例如："id1,id2,id3"）'
+        ja_JP: '検索するデータセット ID（カンマ区切り、例："id1,id2,id3"）'
+      default: ''
+      required: true
+    - name: top_k
+      type: number
+      label:
+        en_US: Top K
+        zh_Hans: Top K
+      description:
+        en_US: 'Maximum number of retrieved results'
+        zh_Hans: '检索结果的最大数量'
+        ja_JP: '検索結果の最大数'
+      default: 1024
+      required: false
+    - name: similarity_threshold
+      type: number
+      label:
+        en_US: Similarity Threshold
+        zh_Hans: 相似度阈值
+      description:
+        en_US: 'Minimum similarity score (0-1)'
+        zh_Hans: '最小相似度分数 (0-1)'
+        ja_JP: '最小類似性スコア (0-1)'
+      default: 0.2
+      required: false
+    - name: vector_similarity_weight
+      type: number
+      label:
+        en_US: Vector Similarity Weight
+        zh_Hans: 向量相似度权重
+      description:
+        en_US: 'Weight for vector similarity (0-1)'
+        zh_Hans: '向量相似度的权重 (0-1)'
+        ja_JP: 'ベクトル類似性の重み (0-1)'
+      default: 0.3
+      required: false
+    - name: page_size
+      type: number
+      label:
+        en_US: Page Size
+        zh_Hans: 每页大小
+      description:
+        en_US: 'Number of results per page'
+        zh_Hans: '每页返回的结果数量'
+        ja_JP: 'ページごとの結果数'
+      default: 30
+      required: false
+execution:
+  python:
+    path: ragflow_datasets.py
+    attr: RAGFlowDatasets

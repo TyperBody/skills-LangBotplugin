@@ -1,0 +1,107 @@
+apiVersion: v1
+kind: KnowledgeRetriever
+metadata:
+  name: dify_datasets
+  label:
+    en_US: Dify Knowledge Base
+    zh_Hans: Dify 知识库
+    ja_JP: Dify 知識ベース
+  description:
+    en_US: 'Retrieve knowledge from Dify knowledge bases'
+    zh_Hans: '从 Dify 知识库中检索知识'
+    ja_JP: 'Dify 知識ベースから知識を検索'
+  icon: assets/icon.svg
+spec:
+  config:
+    - name: api_base_url
+      type: string
+      label:
+        en_US: API Base URL
+        zh_Hans: API 基础地址
+      description:
+        en_US: 'Base URL for Dify API (e.g., https://api.dify.ai/v1 for cloud, or your self-hosted URL)'
+        zh_Hans: 'Dify API 基础地址（云端版本使用 https://api.dify.ai/v1，自托管版本使用您的服务器地址）'
+        ja_JP: 'Dify API ベース URL（クラウド版は https://api.dify.ai/v1、セルフホストの場合はサーバーの URL）'
+      default: 'https://api.dify.ai/v1'
+      required: true
+    - name: dify_apikey
+      type: string
+      label:
+        en_US: Dify API Key
+        zh_Hans: Dify API Key
+      description:
+        en_US: 'API key from your Dify instance'
+        zh_Hans: '从您的 Dify 实例获取的 API Key'
+        ja_JP: 'Dify インスタンスから取得した API Key'
+      default: ''
+      required: true
+    - name: dataset_id
+      type: string
+      label:
+        en_US: Dataset ID
+        zh_Hans: 数据集 ID
+        ja_JP: データセット ID
+      description:
+        en_US: 'The ID of the Dify knowledge base/dataset'
+        zh_Hans: 'Dify 知识库/数据集的 ID'
+        ja_JP: 'Dify ナレッジベース/データセットの ID'
+      default: ''
+      required: true
+    - name: top_k
+      type: number
+      label:
+        en_US: Top K
+        zh_Hans: Top K
+      description:
+        en_US: 'Maximum number of retrieved results'
+        zh_Hans: '检索结果的最大数量'
+        ja_JP: '検索結果の最大数'
+      default: 5
+      required: false
+    - name: score_threshold
+      type: number
+      label:
+        en_US: Score Threshold
+        zh_Hans: 分数阈值
+      description:
+        en_US: 'Minimum relevance score (0-1)'
+        zh_Hans: '最小相关性分数 (0-1)'
+        ja_JP: '最小関連性スコア (0-1)'
+      default: 0.3
+      required: false
+    - name: search_method
+      type: select
+      label:
+        en_US: Search Method
+        zh_Hans: 搜索方法
+        ja_JP: 検索方法
+      description:
+        en_US: 'The search method to use, recommended to select the method that matches your dataset type'
+        zh_Hans: '使用的搜索方法，推荐选择与您的数据集类型匹配的方法'
+        ja_JP: '使用する検索方法，データセットのタイプに合わせて選択することをお勧めします'
+      default: 'hybrid_search'
+      options:
+      - name: 'hybrid_search'
+        label:
+          en_US: 'Hybrid Search'
+          zh_Hans: '混合搜索'
+          ja_JP: 'ハイブリッド検索'
+      - name: 'keyword_search'
+        label:
+          en_US: 'Keyword Search'
+          zh_Hans: '关键词搜索'
+          ja_JP: 'キーワード検索'
+      - name: 'semantic_search'
+        label:
+          en_US: 'Semantic Search'
+          zh_Hans: '语义搜索'
+          ja_JP: 'セマンティック検索'
+      - name: 'full_text_search'
+        label:
+          en_US: 'Full Text Search'
+          zh_Hans: '全文搜索'
+          ja_JP: '全文検索'
+execution:
+  python:
+    path: dify_datasets.py
+    attr: DifyDatasets
