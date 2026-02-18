@@ -1,7 +1,7 @@
 ---
 name: langbotplugin
 description: astrbot插件到langbot插件的转换逻辑,是转换AstrBot插件的步骤,同时有调试插件步骤,自主生成插件
-license: Apache-2.0
+license: GPL-3.0
 trigger_keywords:
   - AstrBot转LangBot
   - AstrBot to LangBot
