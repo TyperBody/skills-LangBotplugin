@@ -2,6 +2,21 @@
 
 > Automatically create skills for LangBot plugins
 
+## Introduction
+
+**Skills-LangBotPlugin** is a powerful tool designed to **automatically create and manage skills** for [LangBot](https://github.com/langbot-app/LangBot) plugins. Through this tool, developers can easily encapsulate various functionalities into AI-callable skills, allowing LangBot's capabilities to expand infinitely like building blocks.
+
+Whether integrating third-party APIs, processing specific data, or executing complex workflows, Skills-LangBotPlugin helps you quickly build standardized skill modules that AI can truly understand and invoke.
+
+## Core Features
+
+- 🤖 **Automated Skill Generation** — Automatically create skills compliant with LangBot specifications based on templates
+- 🔌 **Plugin-oriented Architecture** — Lightweight design, plug-and-play, without affecting core performance
+- 📦 **Rich Example Library** — Built-in multiple skill examples for quick start
+- 🛠️ **Developer Friendly** — Clear documentation and API design, lowering development barriers
+- 🌐 **Multi-source Support** — Easy integration with RAG, search engines, external tools, etc.
+- 📊 **Observability** — Skill invocation logging and performance monitoring
+
 ## 📚 Documentation
 
 - [AstrBot Docs](https://github.com/AstrBotDevs/AstrBot-docs) — *AGPL-3.0*
