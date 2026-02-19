@@ -169,7 +169,7 @@ metadata:
 
 ## 构建 LangBot 插件配置
 参考 references/langbotguide/dev/basic-info.md 只调整插件的 `manifest.yaml` 配置文件。
-此时不要构建components字段，在下一阶段使用工具构建组件
+此时不要构建components字段，在下一阶段使用工具构建组件和文件夹，只修改配置，不编写插件 
 
 ## 构建插件所需组件
 根据功能需求，在插件中引入并配置各类组件，详见 references/langbotguide/dev/components/add.md
