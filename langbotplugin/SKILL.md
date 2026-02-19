@@ -1,28 +1,27 @@
 ---
-name: astr2lang
-description: astrbot插件到langbot插件的转换逻辑,是转换AstrBot插件的步骤,同时有调试插件步骤,自主生成插件
-license: AGPL-3.0
+name: langbotplugin
+description: astrbot插件或者nonebot到langbot插件的转换逻辑,是转换成LangBot插件的步骤,同时有调试插件步骤,自主生成LangBot插件
+license: Apache-2.0
 trigger_keywords:
-  - AstrBot转LangBot
-  - AstrBot to LangBot
-  - astrbot转langbot
+  - 转LangBot
+  - to LangBot
+  - 转langbot
   - astrbot插件转langbot插件
   - astrbot to langbot
   - astrbot plugin to langbot plugin
-  - astr plugin to lang plugin
+  - to lang plugin
   - lang插件调试
   - LangBot插件调试
   - langbot插件调试
   - 插件调试
   - 调试
   - LangBot插件
-  - 创建插件
 metadata:
   author: TwperBody
   version: "0.1 Beta"
 ---
 
-# Astrtolangplugin
+# langbotplugin
 
 你现在是「LangBot核心开发者rockqinQ」
 或者你是「LangBot插件大手子「sheetung」
@@ -44,14 +43,22 @@ metadata:
 13. DEBUG_RUNTIME_WS_URL is not set in .env file则说明阅读 templates/lbpfunction.md 并设置DEBUG_RUNTIME_WS_URL
 14. 要在 生成 下载 等关键部分使用 langbot 日志类型，以便后续调试
 15. 在 async generator 中，yield CommandReturn 之后的代码需要等待下一次迭代才会执行。如果框架只消费一次 yield 就停止，后续代码就不会运行
-16. 如果用户没有提供任何astrbot插件的信息或说要生成一个某某某插件，则默认原生生成，没有参考，跳过所有关于astr的步骤
+16. 如果用户没有提供任何astrbot或nonebot插件的信息或说要生成一个某某某插件，则默认原生生成，没有参考，跳过所有关于astrbot或nonebot的步骤
 17. examples提供了一些用例，你可以参考这些用例
 18. 如果遇到组件冲突，或者组件混同，比如说命令设置特定功能 则需单独规范并重新设计功能
 19. 如果命令没有正确触发，例如用户没有正确发送命令，必须进行正确命令发送提示用户
-20. 如果所给的astrbot插件是zip格式的，请先解压
+20. 如果所给的astrbot或nonebot插件是zip格式的，请先解压
 21. 如果关于进展，则不进行总结，若关于文档或规划，则一定要总结
-22. 时刻明确你写的是LangBot插件而不是astrbot，不要使用astrbot的包，哪怕插件名字里有astr也不要使用astrbot的包
+22. 时刻明确你写的是LangBot插件而不是astrbot或nonebot，不要使用astrbot或nonebot的包，哪怕插件名字里有astr或none也不要使用astrbot或nonebot的包
 23. 在插件 requirements.txt 文件里是插件的依赖，如果更新了依赖，请同步更新插件的 requirements.txt
+
+## 分析被迁移插件
+如果收到被迁移插件，先分析被迁移插件属于被迁移插件属于哪种类型，或来源哪个平台，可能来源的平台有
+- LangBot_old
+- nonebot2
+- astrbot
+根据被迁移插件选择性阅读被迁移插件的框架类型的文档
+此时不要创建插件
 
 ## 了解 LangBot 插件开发类型与可用组件
 请先阅读官方文档参考 templates/lbpfunction.md ，熟悉 LangBot 插件可使用的各类组件。
@@ -83,6 +90,58 @@ metadata:
 分析astr原插件的配置项有什么，哪些是必须的，哪些是可选的
 但是此时不要创建插件
 
+## 了解 noneBot 插件开发类型与可用组件
+请先阅读官方文档参考
+
+### 基础教程
+- references/nonebotguide/tutorial/fundamentals.md - 机器人的构成（Driver、Adapter、Plugin）
+- references/nonebotguide/tutorial/create-plugin.md - 插件编写准备与插件加载方式
+- references/nonebotguide/tutorial/matcher.md - 事件响应器的创建与参数配置
+- references/nonebotguide/tutorial/message.md - 消息序列与消息段的处理
+### 事件响应器进阶
+- references/nonebotguide/advanced/matcher.md - 事件响应器组成与内置响应规则
+- references/nonebotguide/advanced/matcher-provider.md - 事件响应器提供者
+- references/nonebotguide/advanced/requiring.md - 跨插件访问与依赖声明
+- references/nonebotguide/advanced/plugin-nesting.md - 嵌套插件
+- references/nonebotguide/advanced/plugin-info.md - 插件信息
+- references/nonebotguide/advanced/routing.md - 路由配置
+- references/nonebotguide/advanced/runtime-hook.md - 钩子函数（启动/终止/事件处理钩子）
+- references/nonebotguide/advanced/session-updating.md - 会话更新
+### 响应规则与会话
+- references/nonebotguide/appendices/rule.md - 自定义响应规则（RuleChecker、Rule 组合）
+- references/nonebotguide/appendices/session-state.md - 会话状态管理
+- references/nonebotguide/appendices/overload.md - 重载机制
+- references/nonebotguide/appendices/log.md - 日志配置
+- references/nonebotguide/appendices/whats-next.md - 进阶指引
+### 最佳实践
+- references/nonebotguide/best-practice/scheduler.md - 定时任务（APScheduler）
+- references/nonebotguide/best-practice/data-storing.md - 数据存储（localstore 插件）
+- references/nonebotguide/best-practice/htmlkit-render.md - 轻量化 HTML 绘图
+- references/nonebotguide/best-practice/error-tracking.md - 错误追踪
+### Alconna 命令解析
+- references/nonebotguide/best-practice/alconna/command.md - Alconna 命令解析器（Args、Option、Subcommand）
+- references/nonebotguide/best-practice/alconna/config.md - Alconna 配置
+- references/nonebotguide/best-practice/alconna/shortcut.md - 快捷指令
+### 通用消息组件（UniMessage）
+- references/nonebotguide/best-practice/alconna/uniseg/README.md - 通用消息组件示例
+- references/nonebotguide/best-practice/alconna/uniseg/segment.md - 消息段类型
+### 数据库与测试
+- references/nonebotguide/best-practice/database/developer/README.md - 数据库开发指南
+- references/nonebotguide/best-practice/database/developer/dependency.md - 数据库依赖注入
+- references/nonebotguide/best-practice/database/developer/test.md - 数据库测试
+- references/nonebotguide/best-practice/testing/mock-network.md - 网络请求模拟
+
+熟悉 NoneBot 插件可使用的各类组件。
+
+## 分析将要转换插件 bot 插件表达式
+拆解并理解 nonebot 插件中的表达式，将其映射为 LangBot 插件所需的类型定义，此时不是写真正的插件。
+分析这个插件可能需要的langbot组件，但是此时不要创建插件
+
+## 分析 nonebot 插件配置文件
+由于nonebot插件似乎没有webui配置，所以你要对原插件进行可配置项分析
+分析nonebot原插件的配置项有什么，哪些是必须的，哪些是可选的
+但是此时不要创建插件
+
 ## 分析 langbot example 插件文件
 文件夹 examples 提供多种插件参考各各组件的调用方式，可以通过这些插件基本了解插件原理
 但是不要创建langbot插件
@@ -110,14 +169,14 @@ metadata:
 
 ## 构建 LangBot 插件配置
 参考 references/langbotguide/dev/basic-info.md 只调整插件的 `manifest.yaml` 配置文件。
-此时不要构建components字段，在下一阶段使用工具构建组件，文件夹，只修改配置，不编写插件
+此时不要构建components字段，在下一阶段使用工具构建组件
 
 ## 构建插件所需组件
 根据功能需求，在插件中引入并配置各类组件，详见 references/langbotguide/dev/components/add.md
 如果遇到交互问题则提示用户手动输入lbp命令
 
 ## 编写迁移代码
-将 astr 插件的核心逻辑迁移至 LangBot 插件框架，完成适配与测试。
+将 astr或none 插件的核心逻辑迁移至 LangBot 插件框架，完成适配与测试。
 - references/langbotguide/dev/basic-info.md
 - references/langbotguide/dev/directory-structure.md
 - references/langbotguide/dev/migration.md
@@ -134,7 +193,7 @@ metadata:
 - references/langbotguide/dev/components/tool.md
 - references/langbotguide/dev/publish/github.md
 - references/langbotguide/dev/publish/market.md
-务必确认包导入方式正确，不要在langbot插件中调用不可能出现的astrbot的包
+务必确认包导入方式正确，不要在langbot插件中调用不可能出现的astr或nonebot的包
 
 ## 日志规划化
 正确导入 import logging 包
