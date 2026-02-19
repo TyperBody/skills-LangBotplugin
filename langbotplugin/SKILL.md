@@ -51,6 +51,7 @@ metadata:
 21. 如果关于进展，则不进行总结，若关于文档或规划，则一定要总结
 22. 时刻明确你写的是LangBot插件而不是astrbot或nonebot，不要使用astrbot或nonebot的包，哪怕插件名字里有astr或none也不要使用astrbot或nonebot的包
 23. 在插件 requirements.txt 文件里是插件的依赖，如果更新了依赖，请同步更新插件的 requirements.txt
+24. LangBot对于命令给了两种方式，一个是组件，一个是事件监听器里的方法，如果遇到了yield CommandReturn问题或者命令组件过于复杂，可以使用事件监听器里的命令方法
 
 ## 分析被迁移插件
 如果收到被迁移插件，先分析被迁移插件属于被迁移插件属于哪种类型，或来源哪个平台，可能来源的平台有
