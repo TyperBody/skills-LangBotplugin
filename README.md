@@ -27,7 +27,7 @@ Whether integrating third-party APIs, processing specific data, or executing com
 
 | Plugin | Version | License | Author |
 |--------|---------|---------|--------|
-| DickRabbit | 1.3.3 | MIT | Aizbend |
+| [DickRabbit]() | 1.3.3 | MIT | Aizbend |
 | [Markdown2Img Pro](https://github.com/TyperBody/Langbot_M2Img_Pro) | 1.1.4 | MIT | LangBot-Community-Plugin/Typer_Body |
 | [DifyDatasetsRetriever](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.1 | Apache-2.0 | langbot-team |
 | [ScheNotify](https://github.com/langbot-app/langbot-plugin-demo) | 0.2.0 | Apache-2.0 | langbot-team |
