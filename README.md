@@ -21,6 +21,7 @@ Whether integrating third-party APIs, processing specific data, or executing com
 
 - [AstrBot Docs](https://github.com/AstrBotDevs/AstrBot-docs) — *AGPL-3.0*
 - [LangBot Wiki](https://github.com/langbot-app/langbot-wiki) — *Apache-2.0*
+- [NoneBot2 Wiki](https://github.com/nonebot/nonebot2) — *MIT*
 
 ## 🔧 Examples
 
