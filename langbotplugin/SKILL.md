@@ -52,6 +52,7 @@ metadata:
 22. 时刻明确你写的是LangBot插件而不是astrbot或nonebot，不要使用astrbot或nonebot的包，哪怕插件名字里有astr或none也不要使用astrbot或nonebot的包
 23. 在插件 requirements.txt 文件里是插件的依赖，如果更新了依赖，请同步更新插件的 requirements.txt
 24. LangBot对于命令给了两种方式，一个是组件，一个是事件监听器里的方法，如果遇到了yield CommandReturn问题或者命令组件过于复杂，可以使用事件监听器里的命令方法
+25. 插件目录不要手动创建，一旦检测到手动创建目录，插件迁移会截止并删除，并且重新开始构建
 
 ## 分析被迁移插件
 如果收到被迁移插件，先分析被迁移插件属于被迁移插件属于哪种类型，或来源哪个平台，可能来源的平台有
@@ -94,12 +95,14 @@ metadata:
 ## 了解 noneBot 插件开发类型与可用组件
 请先阅读官方文档参考
 
-### 基础教程
+- references\nonebotguide\guide.md - 插件概览
+
+下列文件不全
+
 - references/nonebotguide/tutorial/fundamentals.md - 机器人的构成（Driver、Adapter、Plugin）
 - references/nonebotguide/tutorial/create-plugin.md - 插件编写准备与插件加载方式
 - references/nonebotguide/tutorial/matcher.md - 事件响应器的创建与参数配置
 - references/nonebotguide/tutorial/message.md - 消息序列与消息段的处理
-### 事件响应器进阶
 - references/nonebotguide/advanced/matcher.md - 事件响应器组成与内置响应规则
 - references/nonebotguide/advanced/matcher-provider.md - 事件响应器提供者
 - references/nonebotguide/advanced/requiring.md - 跨插件访问与依赖声明
@@ -108,25 +111,20 @@ metadata:
 - references/nonebotguide/advanced/routing.md - 路由配置
 - references/nonebotguide/advanced/runtime-hook.md - 钩子函数（启动/终止/事件处理钩子）
 - references/nonebotguide/advanced/session-updating.md - 会话更新
-### 响应规则与会话
 - references/nonebotguide/appendices/rule.md - 自定义响应规则（RuleChecker、Rule 组合）
 - references/nonebotguide/appendices/session-state.md - 会话状态管理
 - references/nonebotguide/appendices/overload.md - 重载机制
 - references/nonebotguide/appendices/log.md - 日志配置
 - references/nonebotguide/appendices/whats-next.md - 进阶指引
-### 最佳实践
 - references/nonebotguide/best-practice/scheduler.md - 定时任务（APScheduler）
 - references/nonebotguide/best-practice/data-storing.md - 数据存储（localstore 插件）
 - references/nonebotguide/best-practice/htmlkit-render.md - 轻量化 HTML 绘图
 - references/nonebotguide/best-practice/error-tracking.md - 错误追踪
-### Alconna 命令解析
 - references/nonebotguide/best-practice/alconna/command.md - Alconna 命令解析器（Args、Option、Subcommand）
 - references/nonebotguide/best-practice/alconna/config.md - Alconna 配置
 - references/nonebotguide/best-practice/alconna/shortcut.md - 快捷指令
-### 通用消息组件（UniMessage）
 - references/nonebotguide/best-practice/alconna/uniseg/README.md - 通用消息组件示例
 - references/nonebotguide/best-practice/alconna/uniseg/segment.md - 消息段类型
-### 数据库与测试
 - references/nonebotguide/best-practice/database/developer/README.md - 数据库开发指南
 - references/nonebotguide/best-practice/database/developer/dependency.md - 数据库依赖注入
 - references/nonebotguide/best-practice/database/developer/test.md - 数据库测试
