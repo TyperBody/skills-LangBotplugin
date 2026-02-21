@@ -1,7 +1,7 @@
 # Skills-LangBotPlugin
 
 > Automatically create skills for LangBot plugins
-> Automatically debug skills for LangBot plugins
+> /n Automatically debug skills for LangBot plugins
 
 ## Introduction
 
