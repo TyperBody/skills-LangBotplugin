@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Plugin
+metadata:
+  author: langbot-team
+  name: TavilySearch
+  repository: ''
+  version: 0.1.0
+  description:
+    en_US: A search engine tool built specifically for AI agents (LLMs), delivering real-time, accurate, and factual results at speed.
+    zh_Hans: 专为人工智能代理 (LLM) 构建的搜索引擎工具，可快速提供实时、准确和真实的结果。
+  label:
+    en_US: TavilySearch
+    zh_Hans: TavilySearch
+  icon: assets/icon.png
+spec:
+  config:
+    - name: tavily_api_key
+      type: string
+      label:
+        en_US: 'Tavily API Key'
+        zh_Hans: 'Tavily API 密钥'
+      description:
+        en_US: 'API key from Tavily, you can get it from https://tavily.com/'
+        zh_Hans: 'Tavily 的 API 密钥，可以在 https://tavily.com/ 获取'
+      required: true
+      default: ''
+  components:
+    Tool:
+      fromDirs:
+      - path: components/tools/
+execution:
+  python:
+    path: main.py
+    attr: TavilySearch
