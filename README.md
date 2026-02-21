@@ -72,3 +72,7 @@ Whether you need to trace skill invocation chains, inspect detailed logs, or sim
 
 - LangBot Lead / RockChinQ
 - LangBot Plugin Master / sheetung
+
+<div align="center" style="font-size: 2.5em; font-weight: bold; margin: 30px 0;">
+  Made with ❤️ by the LangBot community
+</div>
