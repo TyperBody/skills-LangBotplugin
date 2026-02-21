@@ -41,7 +41,6 @@ Whether you need to trace skill invocation chains, inspect detailed logs, or sim
 - 🐞 **Real-time Debug Console** — View live skill execution logs and error traces
 - 🔍 **Step-by-step Execution Inspection** — Pause and inspect skill execution at each stage
 - 📋 **Detailed Error Diagnostics** — Precise error messages with stack traces and fix suggestions
-- 🧪 **Interactive Testing Sandbox** — Simulate AI conversations to test skills in isolation
 - ⚡ **Performance Profiling** — Measure skill execution time and resource consumption
 - 🔄 **Skill Invocation Replay** — Replay past skill calls for post-mortem debugging
 
