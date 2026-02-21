@@ -10,6 +10,10 @@
 
 Whether integrating third-party APIs, processing specific data, or executing complex workflows, Skills-LangBotPlugin helps you quickly build standardized skill modules that AI can truly understand and invoke.
 
+**Skills-LangBotPluginDebug** is a specialized debugging tool designed for developers working with [LangBot](https://github.com/langbot-app/LangBot) plugins. This plugin enables developers to **monitor, analyze, and diagnose** AI skill execution in real time, making complex debugging processes clear and intuitive.
+
+Whether you need to trace skill invocation chains, inspect detailed logs, or simulate conversation scenarios for stress testing, Skills-LangBotPluginDebug provides an all-in-one debugging solution. It helps you quickly identify issues, optimize skill performance, and ensure that every AI skill runs stably and precisely.
+
 ## Core Features
 
 - 🤖 **Automated Skill Generation** — Automatically create skills compliant with LangBot specifications based on templates
@@ -18,6 +22,12 @@ Whether integrating third-party APIs, processing specific data, or executing com
 - 🛠️ **Developer Friendly** — Clear documentation and API design, lowering development barriers
 - 🌐 **Multi-source Support** — Easy integration with RAG, search engines, external tools, etc.
 - 📊 **Observability** — Skill invocation logging and performance monitoring
+- 🐞 **Real-time Debug Console** — View live skill execution logs and error traces
+- 🔍 **Step-by-step Execution Inspection** — Pause and inspect skill execution at each stage
+- 📋 **Detailed Error Diagnostics** — Precise error messages with stack traces and fix suggestions
+- 🧪 **Interactive Testing Sandbox** — Simulate AI conversations to test skills in isolation
+- ⚡ **Performance Profiling** — Measure skill execution time and resource consumption
+- 🔄 **Skill Invocation Replay** — Replay past skill calls for post-mortem debugging
 
 ## 📚 Documentation
 
