@@ -1,0 +1,207 @@
+apiVersion: v1
+kind: Plugin
+metadata:
+  author: wangcham
+  name: LangTARS
+  repository: 'https://github.com/langbot-app/LangTARS'
+  version: 0.1.0
+  description:
+    en_US: '(Testing) Native Claw-like Plugin - Control your Mac through IM messages using autonomous AI planning (inspired by ReAct, OpenClaw-style, like TARS from Interstellar)'
+    zh_Hans: '(测试中) 原生类OpenClaw插件 - 通过 IM 消息使用自主 AI 规划能力控制您的 Mac（参考ReAct 理念，如《星际穿越》中的塔斯为你忠诚工作）'
+  label:
+    en_US: LangTARS
+    zh_Hans: LangTARS
+  icon: assets/icon.svg
+spec:
+  config:
+    - name: allowed_users
+      type: array[string]
+      required: false
+      label:
+        en_US: Allowed Users
+        zh_Hans: 允许的用户
+      description:
+        en_US: 'List of user IDs allowed to control this Mac'
+        zh_Hans: '允许控制此 Mac 的用户 ID 列表'
+      default: []
+    - name: command_whitelist
+      type: array[string]
+      required: false
+      label:
+        en_US: Command Whitelist
+        zh_Hans: 命令白名单
+      description:
+        en_US: 'Allowed shell commands (empty = all commands allowed with restrictions)'
+        zh_Hans: '允许的 shell 命令（留空 = 在限制下允许所有命令）'
+      default: []
+    - name: workspace_path
+      type: string
+      required: false
+      label:
+        en_US: Workspace Path
+        zh_Hans: 工作区路径
+      description:
+        en_US: 'Workspace directory for file operations (default: ~/.langtars)'
+        zh_Hans: '文件操作的工作区目录（默认：~/.langtars）'
+      default: ~/.langtars
+    - name: enable_shell
+      type: boolean
+      required: false
+      label:
+        en_US: Enable Shell
+        zh_Hans: 启用 Shell
+      description:
+        en_US: 'Enable shell command execution'
+        zh_Hans: '启用 shell 命令执行'
+      default: true
+    - name: enable_process
+      type: boolean
+      required: false
+      label:
+        en_US: Enable Process Management
+        zh_Hans: 启用进程管理
+      description:
+        en_US: 'Enable process listing and killing'
+        zh_Hans: '启用进程列表和终止'
+      default: true
+    - name: enable_file
+      type: boolean
+      required: false
+      label:
+        en_US: Enable File Operations
+        zh_Hans: 启用文件操作
+      description:
+        en_US: 'Enable file read/write operations'
+        zh_Hans: '启用文件读写操作'
+      default: true
+    - name: enable_app
+      type: boolean
+      required: false
+      label:
+        en_US: Enable App Control
+        zh_Hans: 启用应用控制
+      description:
+        en_US: 'Enable application open/close operations'
+        zh_Hans: '启用应用程序打开/关闭操作'
+      default: true
+    - name: planner_max_iterations
+      type: number
+      required: false
+      label:
+        en_US: Planner Max Iterations
+        zh_Hans: 规划器最大迭代次数
+      description:
+        en_US: 'Maximum number of ReAct loop iterations for autonomous task planning'
+        zh_Hans: '自主任务规划的最大 ReAct 循环迭代次数'
+      default: 5
+    - name: planner_model_uuid
+      type: llm-model-selector
+      required: false
+      label:
+        en_US: Planner Model
+        zh_Hans: 规划器模型
+      description:
+        en_US: 'LLM model to use for autonomous task planning (uses first available if not set)'
+        zh_Hans: '用于自主任务规划的 LLM 模型（未设置时使用第一个可用模型）'
+      default: ''
+    - name: planner_rate_limit_seconds
+      type: number
+      required: false
+      label:
+        en_US: Rate Limit (seconds)
+        zh_Hans: 速率限制（秒）
+      description:
+        en_US: 'Minimum seconds between LLM calls to avoid rate limits (default: 1 second)'
+        zh_Hans: 'LLM 调用之间的最小间隔时间，防止触发速率限制（默认：1秒）'
+      default: 1
+    - name: enable_applescript
+      type: boolean
+      required: false
+      label:
+        en_US: Enable AppleScript
+        zh_Hans: 启用 AppleScript
+      description:
+        en_US: 'Enable AppleScript execution for UI automation'
+        zh_Hans: '启用 AppleScript 执行以进行 UI 自动化'
+      default: true
+    - name: planner_auto_load_mcp
+      type: boolean
+      required: false
+      label:
+        en_US: Auto-load MCP Tools
+        zh_Hans: 自动加载 MCP 工具
+      description:
+        en_US: 'Automatically load tools from MCP servers and other plugins (default: true)'
+        zh_Hans: '自动从 MCP 服务器和其他插件加载工具（默认：true）'
+      default: true
+    - name: enable_browser
+      type: boolean
+      required: false
+      label:
+        en_US: Enable Browser Automation
+        zh_Hans: 启用浏览器自动化
+      description:
+        en_US: 'Enable browser automation using Playwright'
+        zh_Hans: '使用 Playwright 启用浏览器自动化'
+      default: true
+    - name: browser_type
+      type: string
+      required: false
+      label:
+        en_US: Browser Type
+        zh_Hans: 浏览器类型
+      description:
+        en_US: 'Browser engine to use (chromium, firefox, webkit)'
+        zh_Hans: '使用的浏览器引擎 (chromium, firefox, webkit)'
+      default: chromium
+    - name: browser_headless
+      type: boolean
+      required: false
+      label:
+        en_US: Browser Headless Mode
+        zh_Hans: 浏览器无头模式
+      description:
+        en_US: 'Run browser in headless mode (no visible window)'
+        zh_Hans: '以无头模式运行浏览器（无可见窗口）'
+      default: false
+    - name: browser_timeout
+      type: number
+      required: false
+      label:
+        en_US: Browser Timeout (seconds)
+        zh_Hans: 浏览器超时（秒）
+      description:
+        en_US: 'Default timeout for browser operations'
+        zh_Hans: '浏览器操作的默认超时时间'
+      default: 30
+    - name: planner_auto_load_skills
+      type: boolean
+      required: false
+      label:
+        en_US: Auto-load Skills
+        zh_Hans: 自动加载 Skills
+      description:
+        en_US: 'Automatically load skills from ~/.claude/skills directory (default: true)'
+        zh_Hans: '自动从 ~/.claude/skills 目录加载 skills（默认：true）'
+      default: true
+    - name: skills_path
+      type: string
+      required: false
+      label:
+        en_US: Skills Directory
+        zh_Hans: Skills 目录
+      description:
+        en_US: 'Path to skills directory (default: ~/.claude/skills)'
+        zh_Hans: 'Skills 目录路径（默认：~/.claude/skills）'
+      default: ~/.claude/skills
+  components:
+    Command:
+      fromDirs:
+      - path: components/commands/
+    Tool:
+      fromDirs:
+      - path: components/tools/
+execution:
+  python:
+    path: main.py
+    attr: LangTARS

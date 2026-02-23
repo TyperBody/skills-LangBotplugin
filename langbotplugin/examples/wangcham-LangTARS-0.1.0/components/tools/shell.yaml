@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Tool
+metadata:
+  name: shell
+  label:
+    en_US: Shell Command
+    zh_Hans: Shell 命令
+  description:
+    en_US: 'Execute a shell command on this Mac'
+    zh_Hans: '在此 Mac 上执行 shell 命令'
+spec:
+  parameters:
+    type: object
+    properties:
+      command:
+        type: string
+        description: "The shell command to execute"
+      timeout:
+        type: number
+        description: "Timeout in seconds (default: 30)"
+        default: 30
+      working_dir:
+        type: string
+        description: "Working directory (default: workspace)"
+    required:
+      - command
+  llm_prompt: 'Execute a shell command to perform various system operations like listing files, reading processes, checking system status, etc.'
+execution:
+  python:
+    path: shell.py
+    attr: ShellTool

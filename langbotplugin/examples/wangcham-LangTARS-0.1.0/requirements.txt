@@ -1,0 +1,4 @@
+# Mac Control Plugin for LangBot
+aiohttp
+playwright
+pyyaml

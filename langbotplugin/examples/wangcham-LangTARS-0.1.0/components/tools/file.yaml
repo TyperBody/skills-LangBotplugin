@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Tool
+metadata:
+  name: file
+  label:
+    en_US: File Operations
+    zh_Hans: 文件操作
+  description:
+    en_US: 'Read, write, list, and search files'
+    zh_Hans: '读取、写入、列出和搜索文件'
+spec:
+  parameters:
+    type: object
+    properties:
+      action:
+        type: string
+        enum: [read, write, list, search]
+        description: "Action to perform"
+        default: read
+      path:
+        type: string
+        description: "File or directory path (relative to workspace)"
+      content:
+        type: string
+        description: "Content to write (for write action)"
+      pattern:
+        type: string
+        description: "Search pattern (for search action)"
+      show_hidden:
+        type: boolean
+        description: "Show hidden files"
+        default: false
+      recursive:
+        type: boolean
+        description: "Search recursively"
+        default: true
+      mode:
+        type: string
+        enum: [w, a]
+        description: "Write mode (w=overwrite, a=append)"
+        default: w
+    required:
+      - action
+      - path
+  llm_prompt: 'Use this tool to read file contents, write to files, list directory contents, or search for files. All paths are relative to the workspace directory. Read files before writing to them.'
+execution:
+  python:
+    path: file.py
+    attr: FileTool

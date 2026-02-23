@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Tool
+metadata:
+  name: app
+  label:
+    en_US: App Control
+    zh_Hans: 应用控制
+  description:
+    en_US: 'Open, close, and list applications'
+    zh_Hans: '打开、关闭和列出应用程序'
+spec:
+  parameters:
+    type: object
+    properties:
+      action:
+        type: string
+        enum: [open, close, list, frontmost]
+        description: "Action to perform"
+        default: open
+      app_name:
+        type: string
+        description: "Application name to open or close"
+      url:
+        type: string
+        description: "URL to open (http://, https://, etc.)"
+      force:
+        type: boolean
+        description: "Force close the application"
+        default: false
+      limit:
+        type: number
+        description: "Max apps to list"
+        default: 20
+    required:
+      - action
+  llm_prompt: 'Use this tool to open or close applications, list running apps, or check the current frontmost application. Use the exact application name (e.g., "Safari", "Finder", "Terminal"). Open URLs with http:// or https:// prefix.'
+execution:
+  python:
+    path: app.py
+    attr: AppTool

@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Tool
+metadata:
+  name: process
+  label:
+    en_US: Process Management
+    zh_Hans: 进程管理
+  description:
+    en_US: 'List and kill running processes'
+    zh_Hans: '列出和终止运行中的进程'
+spec:
+  parameters:
+    type: object
+    properties:
+      action:
+        type: string
+        enum: [list, kill]
+        description: "Action to perform (list or kill)"
+        default: list
+      filter:
+        type: string
+        description: "Filter pattern for process listing"
+      target:
+        type: string
+        description: "Process name or PID to kill"
+      signal:
+        type: string
+        description: "Signal to send (default: TERM)"
+        default: TERM
+      force:
+        type: boolean
+        description: "Force kill (SIGKILL)"
+        default: false
+      limit:
+        type: number
+        description: "Max processes to list"
+        default: 20
+    required:
+      - action
+  llm_prompt: 'Use this tool to list running processes or kill a process by name or PID. List all processes first to find the correct PID or name, then kill if needed.'
+execution:
+  python:
+    path: process.py
+    attr: ProcessTool
