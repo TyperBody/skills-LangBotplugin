@@ -54,8 +54,8 @@ Whether you need to trace skill invocation chains, inspect detailed logs, or sim
 
 ## 🔧 Examples
 
-| Plugin | Version | License | Author | Servers |
-|--------|---------|---------|--------|---------|
+| Plugin | Version | License | Author | Component | Servers |
+|--------|---------|---------|--------|-----------|---------|
 | [DickRabbit]() | 1.3.3 | MIT | Aizbend | Command , Event Listener |
 | [Markdown2Img Pro](https://github.com/TyperBody/Langbot_M2Img_Pro) | 1.1.4 | MIT | LangBot-Community-Plugin/Typer_Body | Event Listener |
 | [DifyDatasetsRetriever](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.1 | Apache-2.0 | langbot-team | Knowledge Retriever |
@@ -63,6 +63,7 @@ Whether you need to trace skill invocation chains, inspect detailed logs, or sim
 | [RAGFlowRetriever](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | langbot-team | Knowledge Retriever |
 | [TavilySearch](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | langbot-team | Tool |
 | [HelloPlugin](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | RockChinQ | Command , Tool , Event Listener |
+| [LangTARS](https://github.com/langbot-app/LangTARS) | 0.1.0 | MIT | wangcham | Command ，Tool | Agent |
 
 ## 🚀 Main Project
 
