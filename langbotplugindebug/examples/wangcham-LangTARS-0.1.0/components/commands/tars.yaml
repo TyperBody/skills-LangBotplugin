@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Command
+metadata:
+  name: tars
+  label:
+    en_US: TARS
+    zh_Hans: TARS
+  aliases:
+    - langtars
+  description:
+    en_US: 'Control your Mac - run shell commands, manage processes, files, and applications (like OpenClaw). Use !tars or !langtars command.'
+    zh_Hans: '控制您的 Mac - 运行 shell 命令、管理进程、文件和应用程序（类 OpenClaw）。使用 !tars 命令'
+spec:
+  parameters: {}
+execution:
+  python:
+    path: langtars.py
+    attr: LangTARS

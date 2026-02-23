@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Tool
+metadata:
+  name: planner
+  label:
+    en_US: Task Planner
+    zh_Hans: 任务规划器
+  description:
+    en_US: 'Autonomous task planning and execution using ReAct loop'
+    zh_Hans: '使用 ReAct 循环进行自主任务规划和执行'
+spec:
+  parameters:
+    type: object
+    properties:
+      task:
+        type: string
+        description: "The task to execute (e.g., 'Open Safari and search for AI news')"
+      max_iterations:
+        type: number
+        description: "Maximum number of ReAct iterations (default: 5)"
+        default: 5
+    required:
+      - task
+  llm_prompt: 'Plan and execute complex tasks by calling available tools in a loop until the task is complete. Automatically uses the first available LLM model from the pipeline.'
+execution:
+  python:
+    path: planner.py
+    attr: PlannerTool
