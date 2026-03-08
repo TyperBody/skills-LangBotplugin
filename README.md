@@ -67,7 +67,7 @@ Whether you need to trace skill invocation chains, inspect detailed logs, or sim
 | [DifyDatasetsConnector](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | huanghuoguoguo | Knowledge Engine |
 | [FastGPTConnector](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | huanghuoguoguo | Knowledge Engine |
 | [RAGFlowConnector](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | huanghuoguoguo | Knowledge Engine |
-| [LangTARS] | 0.1.0 | Apache-2.0 | wangcham | Parser |
+| [LangTARS]() | 0.1.0 | Apache-2.0 | wangcham | Parser |
 
 ## 🚀 Main Project
 
