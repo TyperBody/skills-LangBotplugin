@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Plugin
+metadata:
+  author: langbot-team
+  name: FastGPTConnector
+  repository: ''
+  version: 0.1.0
+  description:
+    en_US: Retrieve knowledge from FastGPT knowledge bases
+    zh_Hans: 从 FastGPT 知识库中检索知识
+    ja_JP: FastGPT ナレッジベースから知識を取得
+  label:
+    en_US: FastGPT Knowledge Base Retriever
+    zh_Hans: FastGPT 知识库检索器
+    ja_JP: FastGPT ナレッジベース検索器
+  icon: assets/icon.svg
+spec:
+  config: []
+  components:
+    KnowledgeEngine:
+      fromFiles:
+        - components/knowledge_engine/fastgpt.yaml
+execution:
+  python:
+    path: main.py
+    attr: FastGPTConnector

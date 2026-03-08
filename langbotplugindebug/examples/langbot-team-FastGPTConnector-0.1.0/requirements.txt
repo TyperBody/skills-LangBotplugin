@@ -1,0 +1,2 @@
+langbot-plugin==0.3.0rc1
+httpx>=0.27.0

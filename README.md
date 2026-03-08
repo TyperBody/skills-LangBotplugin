@@ -64,6 +64,10 @@ Whether you need to trace skill invocation chains, inspect detailed logs, or sim
 | [TavilySearch](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | langbot-team | Tool |
 | [HelloPlugin](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | RockChinQ | Command , Tool , Event Listener |
 | [LangTARS](https://github.com/langbot-app/LangTARS) | 0.1.0 | MIT | wangcham | Command ，Tool | Agent |
+| [DifyDatasetsConnector](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | huanghuoguoguo | Knowledge Engine |
+| [FastGPTConnector](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | huanghuoguoguo | Knowledge Engine |
+| [RAGFlowConnector](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | huanghuoguoguo | Knowledge Engine |
+| [LangTARS] | 0.1.0 | Apache-2.0 | wangcham | Parser |
 
 ## 🚀 Main Project
 
