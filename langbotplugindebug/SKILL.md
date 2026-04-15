@@ -11,7 +11,7 @@ trigger_keywords:
   - LangBot插件
 metadata:
   author: TwperBody
-  version: "0.1 Beta"
+  version: "1.0 Beta"
 ---
 
 # langbotplugindebug
@@ -46,6 +46,10 @@ metadata:
 23. 在插件 requirements.txt 文件里是插件的依赖，如果更新了依赖，请同步更新插件的 requirements.txt
 24. LangBot对于命令给了两种方式，一个是组件，一个是事件监听器里的方法，如果遇到了yield CommandReturn问题或者命令组件过于复杂，可以使用事件监听器里的命令方法
 25. 插件目录不要手动创建，一旦检测到手动创建目录，插件迁移会截止并删除，并且重新开始构建
+28. 如果用户提供的插件里有私人仓库或者带有非langbot框架词条的url，必须提示用户并且建议用户重新规划或者移除这些操作
+29. 如果用户提供的插件里有漏洞或者不安全的操作，必须提示用户并且建议用户重新规划或者移除这些操作
+30. 这个skill在对应的文件夹下，一般里面的文档你看不到，所以你要根据你自己去检索类似.roo .github .copliot .trea .md .vscode等skill文件夹下的文档
+31. 如果langbot的文档有关于page组件的内容，则需要总结这个组件的使用方法和注意事项，并且在迁移插件webui时有限考虑使用page组件，如果文档里没有关于page组件的内容，则不需要考虑使用page组件
 
 ## 了解 LangBot 插件开发类型与可用组件
 请先阅读官方文档参考 templates/lbpfunction.md ，熟悉 LangBot 插件可使用的各类组件。
@@ -76,6 +80,8 @@ metadata:
 - references/langbotguide/dev/components/tool.md
 - references/langbotguide/dev/publish/github.md
 - references/langbotguide/dev/publish/market.md
+- 更多请参考skill下的eferences/langbotguide
+
 务必确认包导入方式正确，不要在langbot插件中调用不可能出现的astr或nonebot的包
 
 ## 日志规划化
