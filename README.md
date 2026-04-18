@@ -51,6 +51,8 @@ Whether you need to trace skill invocation chains, inspect detailed logs, or sim
 - [AstrBot Docs](https://github.com/AstrBotDevs/AstrBot-docs) — *AGPL-3.0*
 - [LangBot Wiki](https://github.com/langbot-app/langbot-wiki) — *Apache-2.0*
 - [NoneBot2 Wiki](https://github.com/nonebot/nonebot2) — *MIT*
+- [Koishi v3 Docs](https://github.com/koishijs/v3) — *MIT*
+- [Koishi v4 Docs](https://github.com/koishijs/docs) — *CC-BY-SA-4.0 license*
 
 ## 🔧 Examples
 

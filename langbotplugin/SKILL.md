@@ -65,6 +65,7 @@ metadata:
 - LangBot_old
 - nonebot2
 - astrbot
+- koishi 
 根据被迁移插件选择性阅读被迁移插件的框架类型的文档
 此时不要创建插件
 
@@ -98,6 +99,42 @@ metadata:
 对照官方配置规范 references/astrguide/plugin-config.md
 回看astrbot插件的配置项，但是不要创建langbot插件
 分析astr原插件的配置项有什么，哪些是必须的，哪些是可选的
+但是此时不要创建插件
+
+## 了解 LangBot 插件开发类型与可用组件
+请先阅读官方文档参考 templates/lbpfunction.md ，熟悉 LangBot 插件可使用的各类组件。
+此时不要创建插件
+
+## 分析将要转换的Koishi插件版本
+
+koishi插件有多个版本，首先要分析被迁移插件的koishi版本，根据版本选择性阅读官方文档
+- references/koishiguideV3
+- references/koishiguideV4
+
+## 了解 Koishi 插件开发类型与可用组件
+请先阅读官方文档参考
+
+- 更多请参考skill下对应版本的eferences/koishiguideVX/plugin
+
+熟悉 Koishi 插件可使用的各类组件。
+
+## 分析将要转换插件 Koishi 插件表达式
+拆解并理解 koishi 插件中的表达式，将其映射为 LangBot 插件所需的类型定义，此时不是写真正的插件。
+由于JavaScript和Python的差异，某些表达式可能需要重新设计以适应 Python 的语法和 LangBot 的架构。
+必要时需要对某些功能进行调整或重新实现，以确保它们在 LangBot 中能够正常工作。
+koishi是一款模块化框架，插件之间可能存在依赖关系，因此在分析插件表达式时需要注意这些依赖关系，并确保在迁移过程中正确处理它们。
+部分koishi接口langbot是没有的，要重新设计实现
+因为LangBot是一款AI的IM+Agent框架，所以在迁移过程中需要考虑如何将原有的功能与AI能力相结合，可能需要对某些功能进行调整或重新实现，以充分利用LangBot的优势。
+koishi也有AI插件，对于与LangBot能力重叠部分直接抛弃，将差异功能转化为插件
+同时检查被迁移插件的硬url和ip地址或者高危风险，有漏洞的操作，询问用户是否移除或重新规划操作，特别是私人仓库，或带有非langbot框架词条的url
+分析这个插件可能需要的langbot组件，但是此时不要创建插件
+
+## 分析 Koishi 插件配置文件
+对照官方配置规范 references/koishiguideVX
+由于部分可配置项koishi是自带的，而langbot需要通过组件实现，所以在分析配置项时要注意区分哪些是koishi自带的，哪些是插件自己实现的
+对这一部分配置项要进行适配设计，可能需要重新设计以适应 Python 的语法和 LangBot 的架构。
+回看koishi插件的配置项，但是不要创建langbot插件
+分析koishi原插件的配置项有什么，哪些是必须的，哪些是可选的
 但是此时不要创建插件
 
 ## 了解 noneBot 插件开发类型与可用组件
@@ -226,3 +263,5 @@ logger.error('This is an error message')
 4. examples提供了一些用例，你可以参考这些用例进行修复
 5. 通过文档去反向检查功能是否完善 一个bug是否影响其他功能或者这个bug在其他功能上有体现
 6. 直到用户回复没有问题结束开发，否则结束一个问题后继续等待用户新问题
+7. 如果测试发现插件没有完成，则到未完成的步骤重新补全插件
+8. 确认完成后尝试继续加载langbotplugindebug Skill进行调试
