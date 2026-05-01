@@ -70,6 +70,7 @@ Whether you need to trace skill invocation chains, inspect detailed logs, or sim
 | [FastGPTConnector](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | huanghuoguoguo | Knowledge Engine |
 | [RAGFlowConnector](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.0 | Apache-2.0 | huanghuoguoguo | Knowledge Engine |
 | [GeneralParsers](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.6 | Apache-2.0 | langbot-team | Parsers |
+| [FAQ Manager](https://github.com/langbot-app/langbot-plugin-demo) | 0.1.6 | MIT | RockChinQ | Page |
 
 ## 🚀 Main Project
 
