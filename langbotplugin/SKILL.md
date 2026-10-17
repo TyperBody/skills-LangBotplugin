@@ -64,10 +64,12 @@ metadata:
 
 ## 分析被迁移插件
 如果收到被迁移插件，先分析被迁移插件属于被迁移插件属于哪种类型，或来源哪个平台，可能来源的平台有
+- astrbot_old
 - LangBot_old
 - nonebot2
 - astrbot
-- koishi 
+- koishiV3
+- koishiV4
 根据被迁移插件选择性阅读被迁移插件的框架类型的文档
 此时不要创建插件
 
